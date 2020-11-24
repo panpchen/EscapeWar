@@ -1,3 +1,5 @@
+import { Constants } from "./Config/Constants";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -10,6 +12,10 @@ export default class Loading extends cc.Component {
         cc.macro.ENABLE_MULTI_TOUCH = false;
         const manager = cc.director.getCollisionManager();
         manager.enabled = true;
+
+        Constants.storeParmForAssessStatistics();
+
+
         // manager.enabledDebugDraw = true;
         this.preloadGameScene();
     }

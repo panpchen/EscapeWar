@@ -8,6 +8,8 @@
 import BaseUI from "./BaseUI";
 import { UIManager, UIType } from "../UIManager";
 import Game from "../Game";
+import { SendMsg } from "../Net/SendMsg";
+import { Constants } from "../Config/Constants";
 
 const { ccclass, property } = cc._decorator;
 
@@ -34,6 +36,8 @@ export default class ResultUI extends BaseUI {
         } else {
             this.aniList[0].active = true;
         }
+
+        SendMsg.reqSaveAssessStatistics(Constants.AssessStatisticsJson);
     }
 
     clickAgainGame() {
